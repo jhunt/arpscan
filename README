@@ -1,0 +1,64 @@
+                            arpscan
+
+What is it?
+-----------
+
+arpscan is a small, lightweight utility for scanning subnets via
+ARP request packets, that operate strictly at the Ethernet layer
+(no Layer 3, no ICMP).
+
+The advantage of this approach is that it doesn't bother firewall
+administrators, and is nearly impossible to block (blocking ARP
+requests is tantamount to unplugging the network cable).  It's
+also fast.
+
+
+The Latest Version
+------------------
+
+arpscan source code is hosted on github:
+
+    http://github.com/filefrog/arpscan
+
+
+How do I use it?
+----------------
+
+    $ arpscan eth0 192.168.0.0/24
+
+You provide arpscan with a device name (`eth0`) and a CIDR-style
+subnet (`192.168.0.0/24`) and arpscan will submit ARP requests for
+every IP, from 192.168.0.0 to 192.168.0.255, recording all
+received ARP replies within a small window, and print them to
+standard out, like this:
+
+    68:7f:74:XX:XX:XX  192.168.0.1
+    00:30:67:XX:XX:XX  192.168.0.32
+
+This output format should be easy to read and easy to parse with
+tools like Perl, grep, awk and sed.
+
+
+Installation
+------------
+
+arpscan is packaged using Autotools (autoconf, automake, etc.):
+
+    $ ./configure
+    $ make
+    $ make install
+
+If you don't have a configure script, you may need to run the
+autotools themselves to get one:
+
+    $ aclocal && autoconf
+    $ automake --force-missing --add-missing
+
+For more details, see INSTALL.
+
+
+Licensing
+---------
+
+arpscan is licensed under the GNU General Public License, v3.
+See COPYING for details.

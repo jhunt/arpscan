@@ -1,0 +1,7 @@
+arpscan TODO / Wishlist
+-----------------------
+
+  - configurable timeout
+  - auto-determine network from interface
+  - auto-determine interface from network
+

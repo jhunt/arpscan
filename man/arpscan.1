@@ -1,0 +1,100 @@
+\"
+\"  Copyright 2014 James Hunt <james@niftylogic.com>
+\"
+\"  This file is part of arpscan.
+\"
+\"  arpscan is free software: you can redistribute it and/or modify it
+\"  under the terms of the GNU General Public License as published by
+\"  the Free Software Foundation, either version 3 of the License, or
+\"  (at your option) any later version.
+\"
+\"  arpscan is distributed in the hope that it will be useful, but
+\"  WITHOUT ANY WARRANTY; without even the implied warranty of
+\"  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+\"  GNU General Public License for more details.
+\"
+\"  You should have received a copy of the GNU General Public License
+\"  along with Clockwork.  If not, see <http://www.gnu.org/licenses/>.
+\"
+
+.TH arpscan "1" "January 2014" "arpscan" "Network ARP Scanner"
+.SH NAME
+.PP
+arpscan \- Network ARP Scanner
+
+.SH SYNOPSIS
+.PP
+.B arpscan
+[options]
+.br
+.B arpscan
+-d eth1 -n 192.168.0.0/24
+
+.SH DESCRIPTION
+.PP
+.B arpscan
+is a lightweight network scanner that uses ARP requests and replies to
+enumerate hosts on a single Ethernet LAN segment.  Given a single
+interface device name (like \fBeth0\fR or \fBwlan0\fR) and a network
+(in CIDR notation).
+.PP
+Since \fBarpscan\fR deals with raw Ethernet frames, it bypasses the
+Linux kernel ARP cache.  This is deliberate, and helps to keep the
+cache clear for legitimate purposes (i.e. passing traffic across the
+LAN).
+
+.SH OPTIONS
+.PP
+\fB\-V\fR, \fB\-\-version\fR
+.RS 8
+Print version and copyright information.
+.RE
+
+.PP
+\fB\-v\fR, \fB\-\-verbose\fR
+.RS 8
+Increase verbosity.  Information about program flow and internal state
+will be printed to standard error.
+.PP
+One flag (\fB\-v\fR) will get you basic flow control diagnostics.
+.PP
+Two flags (\fB\-vv\fR) will show more in-depth debugging.
+.PP
+Five flags (\fB\-vvvvv\fR) will also dump Ethernet frames in hex.
+.RE
+
+.PP
+\fB\-q\fR, \fB\-\-quiet\fR
+.RS 8
+Suppress all diagnostic output, undoing any \fB\-v\fR in force.
+.RE
+
+.PP
+\fB\-d\fR, \fB\-\-device\fR \fIDEVICE\fR
+.RS 8
+Select the network interface to send ARP requests out via.
+The named interface should be up and needs a layer 3 (IPv4) address.
+.RE
+
+.PP
+\fB\-n\fR, \fB\-\-network\fR \fINETWORK\fR
+.RS 8
+Network range to scan.
+.RE
+
+.PP
+\fB\-t\fR, \fB\-\-timeout\fR \fIMS\fR
+.RS 8
+Timeout (in milliseconds) before exiting.  When \fBarpscan\fR is
+reading ARP replies off the network, it will continue to wait for new
+replies for up to this many milliseconds since the last full ARP
+reply.
+.RE
+
+.SH SEE ALSO
+.PP
+\fBarp\fR(7)
+
+.SH AUTHOR
+.PP
+\fBarpscan\fR was written by James Hunt.
