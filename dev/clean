@@ -1,0 +1,12 @@
+#!/bin/bash
+# clean the source directory
+# can't be in Makefile, since
+# it removes the Makefile...
+
+[ -f Makefile ] && make clean
+rm -fr .deps/ autom4te.cache/
+rm -f  aclocal.m4 config.guess config.h config.h.in config.log
+rm -f  config.status config.sub configure configure.scan depcomp
+rm -f  install-sh Makefile Makefile.in missing stamp-h1
+rm -f  arpscan arpscan-*.tar.gz
+find . -name '*.o' | xargs -r rm

@@ -2,12 +2,11 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.68)
-AC_INIT(arpscan, 1.0, bugs@niftylogic.com)
-AC_CANONICAL_SYSTEM
+AC_INIT(arpscan, 1.0.0, james@jameshunt.us)
 AC_CONFIG_SRCDIR([src])
+AC_CONFIG_AUX_DIR([build])
 AM_INIT_AUTOMAKE
 AM_MAINTAINER_MODE
-AC_CONFIG_HEADER(config.h)
 
 # Checks for programs.
 AC_PROG_CC

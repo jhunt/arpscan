@@ -1,0 +1,21 @@
+Source: arpscan
+Priority: extra
+Maintainer: James Hunt <james@jameshunt.us>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Section: net
+Homepage: https://github.com/filefrog/arpscan
+
+Package: arpscan
+Architecture: linux-any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Section: admin
+Description: Network ARP Scanner
+ arpscan is a small, lightweight utility for scanning subnets via
+ ARP request packets, that operate strictly at the Ethernet layer
+ (no Layer 3, no ICMP).
+ .
+ The advantage of this approach is that it doesn't bother firewall
+ administrators, and is nearly impossible to block (blocking ARP
+ requests is tantamount to unplugging the network cable).  It's
+ also fast.
