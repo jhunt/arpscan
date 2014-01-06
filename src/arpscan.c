@@ -1,13 +1,23 @@
-/* basic idea:
+/*
+  Copyright 2014 James Hunt <james@jameshunt.us>
 
-   flood the network with ARP packets,
-     one per IP in the given range.
-   collect all the ARP packets
-     until we don't get one for X seconds
-   write mac/ip map to standard output
+  This file is part of arpscan.
+
+  arpscan is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  arpscan is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with arpscan.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#define VERSION "1.0"
+#define VERSION "1.0.0"
 
 #include <stdio.h>
 #include <string.h>
