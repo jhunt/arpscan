@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.68)
-AC_INIT(arpscan, 1.0.0, james@jameshunt.us)
+AC_INIT(arpscan, 1.0.1, james@jameshunt.us)
 AC_CONFIG_SRCDIR([src])
 AC_CONFIG_AUX_DIR([build])
 AM_INIT_AUTOMAKE

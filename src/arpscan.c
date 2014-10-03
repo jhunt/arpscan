@@ -154,6 +154,14 @@ for_each_ip(const char *network, ip_callback cb)
 
 	/* calculate the netmask based on net_part */
 	mask = atoi(net_part); /* FIXME: use strto*, to detect errors */
+	if (mask > 32) {
+		fprintf(stderr, "invalid network mask /%d\n", mask);
+		return;
+	}
+	if (mask < 24) {
+		fprintf(stderr, "dangerous network mask /%d (too expansive)\n", mask);
+		return;
+	}
 
 	if (inet_pton(AF_INET, host_part, &ipv4) != 1) {
 		fprintf(stderr, "failed to parse %s as an IP address\n", host_part);
