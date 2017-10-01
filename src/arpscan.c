@@ -17,8 +17,6 @@
   along with arpscan.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#define VERSION "1.0.0"
-
 #include <stdio.h>
 #include <string.h>
 #include <strings.h>
