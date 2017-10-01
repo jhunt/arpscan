@@ -5,7 +5,7 @@ AC_PREREQ(2.68)
 AC_INIT(arpscan, 1.0.1, james@jameshunt.us)
 AC_CONFIG_SRCDIR([src])
 AC_CONFIG_AUX_DIR([build])
-AM_INIT_AUTOMAKE
+AM_INIT_AUTOMAKE([-Wall -Werror foreign subdir-objects])
 AM_MAINTAINER_MODE
 
 # Checks for programs.
